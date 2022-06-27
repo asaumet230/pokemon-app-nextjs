@@ -10,7 +10,7 @@ export const Footer = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: '5px 20px',
-            backgroundColor: theme?.colors.gray900.value,
+            backgroundColor: theme?.colors.blue50.value,
         }}>
             <p>&copy; {new Date().getFullYear()} Pokémon App</p>
         </footer>

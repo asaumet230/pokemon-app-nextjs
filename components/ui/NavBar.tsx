@@ -14,7 +14,7 @@ export const NavBar = () => {
             justifyContent: 'start',
             alignItems: 'center',
             padding: '5px 20px',
-            backgroundColor: theme?.colors.gray900.value
+            backgroundColor: theme?.colors.blue50.value
 
         }}>
             <Image
