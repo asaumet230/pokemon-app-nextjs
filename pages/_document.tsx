@@ -6,6 +6,8 @@ class MyDocument extends Document {
 
     static async getInitialProps(ctx: DocumentContext) {
 
+
+
         const initialProps = await Document.getInitialProps(ctx);
 
         return {
@@ -13,9 +15,13 @@ class MyDocument extends Document {
             styles: React.Children.toArray([initialProps.styles])
         };
 
+
+
+
     }
 
     render() {
+
         return (
             <Html lang="es">
                 <Head>{CssBaseline.flush()}</Head>
