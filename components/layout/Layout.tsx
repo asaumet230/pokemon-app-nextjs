@@ -11,6 +11,10 @@ interface LayoutProps {
 }
 
 
+// Este codigo es para la imagen que se coloca cuando se comparte esta pagina:
+const origin = (typeof window === 'undefined') ? '' : window.location.origin;
+
+
 export const Layout: FC<LayoutProps> = ({ children, title }) => {
 
 
@@ -21,6 +25,11 @@ export const Layout: FC<LayoutProps> = ({ children, title }) => {
                 <meta name="author" content="Andres Felipe Saumet" />
                 <meta name="description" content={`Información del pokémon: ${title}`} />
                 <meta name="keywords" content={`${title}, pokémon, pokedex`} />
+
+                <meta property="og:title" content={`Información sobre el pokemon ${title}`} />
+                <meta property="og:description" content={`Esta es la página sobre ${title}`} />
+                <meta property="og:image" content={`${origin}/img/banner.png`} />
+
             </Head>
 
             <NavBar />

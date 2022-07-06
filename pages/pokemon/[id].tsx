@@ -15,7 +15,8 @@ import { Pokemon } from '../../interfaces';
 import Image from 'next/image';
 
 // Utils:
-import { toggleFavorite, includeFavorites } from '../../utils';
+import { toggleFavorite, includeFavorites, getPokemonInfo } from '../../utils';
+
 
 
 interface PokemonPageProps {
@@ -139,12 +140,10 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { id } = params as { id: string };
-    const { data } = await pokeApi.get<Pokemon>(`/pokemon/${id}`);
-
 
     return {
         props: {
-            pokemon: data,
+            pokemon: await getPokemonInfo(id)
         }
     }
 }

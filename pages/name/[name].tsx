@@ -13,7 +13,8 @@ import { Layout } from '../../components/layout';
 import { PokemonListResponse, Pokemon } from '../../interfaces';
 
 // Utils:
-import { includeFavorites, toggleFavorite } from '../../utils';
+import { getPokemonInfo, includeFavorites, toggleFavorite } from '../../utils';
+
 
 
 interface PokemonPageProps {
@@ -125,12 +126,12 @@ export const getStaticPaths: GetStaticPaths<any> = async (ctx) => {
 
     const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
 
-    const pokemonListNames = data.results;
+    const pokemonListNames: string[] = data.results.map(pokemon => pokemon.name);
 
     return {
-        paths: pokemonListNames.map(pokemon => ({
+        paths: pokemonListNames.map(name => ({
             params: {
-                name: pokemon.name
+                name
             }
         })),
         fallback: false,
@@ -141,11 +142,10 @@ export const getStaticPaths: GetStaticPaths<any> = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { name } = params as { name: string };
-    const { data } = await pokeApi.get<Pokemon>(`/pokemon/${name}`);
 
     return {
         props: {
-            pokemon: data
+            pokemon: await getPokemonInfo(name)
         }
     }
 }

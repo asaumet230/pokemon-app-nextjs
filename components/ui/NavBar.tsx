@@ -26,7 +26,7 @@ export const NavBar = () => {
                     alignItems: 'center',
                 }}>
                     <Image
-                        src="/pokemonLogo.png"
+                        src="/img/pokemonLogo.png"
                         alt="Pokémon Icon"
                         width={50}
                         height={50}
