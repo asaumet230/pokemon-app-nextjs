@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NextPage } from 'next';
-import { Card, Grid } from '@nextui-org/react';
+
 
 // Components:
 import { Layout } from '../../components/layout';

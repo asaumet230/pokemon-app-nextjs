@@ -123,7 +123,6 @@ const PokemonByNamePage: NextPage<PokemonPageProps> = ({ pokemon }) => {
 
 export const getStaticPaths: GetStaticPaths<any> = async (ctx) => {
 
-
     const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
 
     const pokemonListNames: string[] = data.results.map(pokemon => pokemon.name);
@@ -134,7 +133,7 @@ export const getStaticPaths: GetStaticPaths<any> = async (ctx) => {
                 name
             }
         })),
-        fallback: false,
+        fallback: 'blocking', //ISG INCREMENTAL STATIC REGENERATION
     }
 }
 
@@ -143,9 +142,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { name } = params as { name: string };
 
+    const pokemon = await getPokemonInfo(name);
+
+    if (!pokemon) {
+
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            }
+        }
+    }
+
     return {
         props: {
-            pokemon: await getPokemonInfo(name)
+            pokemon
         }
     }
 }
