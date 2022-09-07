@@ -4,14 +4,13 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { Button, Card, Container, Grid, Text } from '@nextui-org/react';
 import confetti from 'canvas-confetti';
 
-// Axios Client:
-import { pokeApi } from '../../api';
-
 // Components:
 import { Layout } from '../../components/layout';
 
 // Interfaces:
 import { Pokemon } from '../../interfaces';
+
+// Images:
 import Image from 'next/image';
 
 // Utils:
@@ -156,7 +155,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         props: {
             pokemon
         },
-        revalidate: 86400 //Esto indicaria a Nextjs que regenere esta pagina cada 24 horas, el valor esta en segundos
+        revalidate: 86400 //Esto indicaria a Nextjs que regenere esta pagina cada 24 horas, el valor esta en segundos ISR
     }
 }
 

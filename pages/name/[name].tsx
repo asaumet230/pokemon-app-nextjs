@@ -133,7 +133,7 @@ export const getStaticPaths: GetStaticPaths<any> = async (ctx) => {
                 name
             }
         })),
-        fallback: 'blocking', //ISG INCREMENTAL STATIC REGENERATION
+        fallback: 'blocking', //ISG INCREMENTAL STATIC GENERATION
     }
 }
 
