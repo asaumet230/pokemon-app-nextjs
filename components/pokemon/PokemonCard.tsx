@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/router';
-import { Card, Grid, Row, Text } from '@nextui-org/react';
+import { Button, Card, Grid, Row, Text } from '@nextui-org/react';
 
 // Interfaces:
 import { SmallPokemon } from '../../interfaces';
@@ -19,7 +19,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
 
     const onClick = () => {
 
-        router.push(`/name/${name}`);
+        router.push(`/pokemon/${id}`);
 
     }
 
