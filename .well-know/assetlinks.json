@@ -1,0 +1,11 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.andressaumet.miscelaneos",
+      "sha256_cert_fingerprints":
+      ["63:4D:8A:DF:03:74:57:72:27:DD:26:13:F6:37:BC:CE:8B:0C:EF:68:AF:AA:42:7E:7B:C9:EE:47:71:A3:81:26"]
+    }
+  }]
+  
+  
